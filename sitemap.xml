@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Production domain pending. Replace the URL below when the final Vercel/custom domain is connected. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://subscription-store.vercel.app/</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/</loc></url>
 </urlset>

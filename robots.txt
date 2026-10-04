@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap URL will be finalized after the production domain is connected.

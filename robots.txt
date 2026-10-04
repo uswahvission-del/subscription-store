@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://subscription-store.vercel.app/sitemap.xml
+# Sitemap will be published here after the production domain is connected.

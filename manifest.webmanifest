@@ -1,0 +1,11 @@
+{
+  "name":"Nexa Digital Tools",
+  "short_name":"Nexa Tools",
+  "description":"Nexa Digital Tools — AI, creative and digital subscriptions.",
+  "start_url":"/",
+  "scope":"/",
+  "display":"standalone",
+  "background_color":"#f4f7fc",
+  "theme_color":"#071226",
+  "lang":"en"
+}

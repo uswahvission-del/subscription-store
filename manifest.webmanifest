@@ -2,10 +2,15 @@
   "name":"Nexa Digital Tools",
   "short_name":"Nexa Tools",
   "description":"Nexa Digital Tools — AI, creative and digital subscriptions.",
+  "id":"/",
   "start_url":"/",
   "scope":"/",
   "display":"standalone",
   "background_color":"#f4f7fc",
   "theme_color":"#071226",
-  "lang":"en"
+  "lang":"en",
+  "icons":[
+    {"src":"/icons/icon-192.svg","type":"image/svg+xml","sizes":"192x192","purpose":"any maskable"},
+    {"src":"/icons/icon-512.svg","type":"image/svg+xml","sizes":"512x512","purpose":"any maskable"}
+  ]
 }

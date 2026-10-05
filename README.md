@@ -2,10 +2,14 @@
 
 Nexa Digital Tools website — production front-end baseline for digital subscriptions and direct WhatsApp ordering.
 
-## Current offer
-- Ideogram Plus — 1 month — Rs 2,250
+## Current catalog
+- Ideogram Plus — 1 month — Rs 2,250 — 30 days complete warranty
+- ChatGPT Plus — 1 month — Rs 3,250 — 25 days replacement warranty
+- CapCut Pro — 1 month — Rs 550 — 27 days replacement warranty
+- CapCut Pro — 6 months — Rs 3,500 — complete 6 months replacement warranty
+
+### Ideogram reference
 - Official reference price: $20/month on monthly billing + applicable tax
-- 30 days complete warranty
 - Full private account
 - Use on 3–4 devices easily
 

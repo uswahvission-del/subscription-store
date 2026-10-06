@@ -54,7 +54,7 @@ footer{background:#071226;color:#aebfd9;padding:32px 0 96px;margin-top:15px}.foo
 
 .catalog-tools{display:flex;align-items:end;justify-content:space-between;gap:12px;padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:4px 0 8px}
 .catalog-search{display:grid;gap:4px;flex:1;max-width:520px}.catalog-search label{font-size:12px;font-weight:800;color:var(--muted)}.catalog-search input{width:100%;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}.catalog-actions{display:flex;gap:8px;flex-wrap:wrap}.catalog-status{color:var(--muted);font-size:12px;margin:0 0 12px 2px}
-.compare-check input{accent-color:var(--accent)}.tool-card{position:relative}.compare-table-wrap{overflow:auto;margin-top:14px}.compare-table{width:100%;border-collapse:collapse;min-width:520px}.compare-table th,.compare-table td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.compare-table th{font-family:var(--display);background:var(--surface2)}.compare-table td:first-child{font-weight:800;white-space:nowrap}.lookup-panel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:end}.lookup-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.lookup-actions .note{max-width:390px}
+.tool-card{position:relative}.lookup-panel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:end}.lookup-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.lookup-actions .note{max-width:390px}
 @media(max-width:650px){.catalog-tools{align-items:stretch;flex-direction:column}.catalog-actions{width:100%}.catalog-actions .btn{flex:1}.lookup-panel{grid-template-columns:1fr}}
 </style>
 <style>
@@ -203,7 +203,7 @@ $('#copySadaPay').addEventListener('click',async()=>{
 });
 const ownerOverlay=$('#ownerOverlay'), ownerLogin=$('#ownerLogin'), ownerDashboard=$('#ownerDashboard');
 function openOwner(){ownerOverlay.hidden=false;document.body.style.overflow='hidden';sb.auth.getSession().then(({data})=>{if(data.session)loadOwner();else setTimeout(()=>$('#ownerEmail').focus(),30)})}
-function closeOwner(){ownerOverlay.hidden=true;if($('#overlay').hidden&&!$('#compareOverlay').hidden===false)document.body.style.overflow=''}
+function closeOwner(){ownerOverlay.hidden=true;if($('#overlay').hidden)document.body.style.overflow=''}
 document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&e.key.toLowerCase()==='a'){e.preventDefault();openOwner()}});
 if(location.hash==='#owner')openOwner();
 $('#ownerClose').addEventListener('click',closeOwner);

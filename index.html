@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://nexa-digital-tools.vercel.app/">
+<link rel="icon" href="/icons/icon-192.svg" type="image/svg+xml">
 <meta name="theme-color" content="#071226">
 <meta name="description" content="Nexa Digital Tools — premium AI and creative tool subscriptions in Pakistan with local payment options and direct WhatsApp support.">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -11,6 +13,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nexa Digital Tools — AI & Digital Subscriptions">
 <meta property="og:description" content="Premium digital tools with local payment options, warranty support and direct WhatsApp ordering.">
+<meta property="og:url" content="https://nexa-digital-tools.vercel.app/">
+<meta property="og:site_name" content="Nexa Digital Tools">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nexa Digital Tools">
@@ -88,7 +92,7 @@ footer{background:#071226;color:#aebfd9;padding:32px 0 96px;margin-top:15px}.foo
 <button class="close close-sheet" type="button" id="ownerClose" aria-label="Close owner panel">×</button>
 <div id="ownerLogin">
 <h2 id="ownerTitle">Owner login</h2><p class="note">Private owner area. Customers cannot access the dashboard without an authorized account.</p>
-<form class="order-form" id="ownerLoginForm"><div class="field"><label for="ownerEmail">Email</label><input id="ownerEmail" type="email" required autocomplete="username"></div><div class="field"><label for="ownerPassword">Password</label><input id="ownerPassword" type="password" required autocomplete="current-password"></div><button class="btn big" type="submit">Sign in</button><p class="note" id="ownerLoginMsg"></p></form>
+<form class="order-form" id="ownerLoginForm"><div class="field"><label for="ownerEmail">Email</label><input id="ownerEmail" type="email" required autocomplete="username"></div><div class="field"><label for="ownerPassword">Password</label><input id="ownerPassword" type="password" required autocomplete="current-password"></div><button class="btn big" type="submit">Sign in</button><button class="btn ghost big" type="button" id="ownerForgot">Forgot password?</button><p class="note" id="ownerLoginMsg"></p></form>
 </div>
 <div id="ownerDashboard" hidden>
 <div class="owner-head"><div><h2 id="ownerTitle2">Nexa Owner Dashboard</h2><p class="note" id="ownerUser"></p></div><button class="btn ghost sm" id="ownerLogout" type="button">Logout</button></div>
@@ -249,6 +253,8 @@ document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&e.key.toLowerC
 if(location.hash==='#owner')openOwner();
 $('#ownerClose').addEventListener('click',closeOwner);
 $('#ownerLoginForm').addEventListener('submit',async e=>{e.preventDefault();$('#ownerLoginMsg').textContent='Signing in…';const {error}=await sb.auth.signInWithPassword({email:$('#ownerEmail').value.trim(),password:$('#ownerPassword').value});if(error){$('#ownerLoginMsg').textContent=error.message;return}await loadOwner()});
+$('#ownerForgot').addEventListener('click',async()=>{const email=$('#ownerEmail').value.trim();if(!email){$('#ownerLoginMsg').textContent='Enter the owner email first, then click Forgot password.';$('#ownerEmail').focus();return}$('#ownerLoginMsg').textContent='Sending password reset email…';const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/#owner'});$('#ownerLoginMsg').textContent=error?'Could not send reset email: '+error.message:'Reset email sent. Check the owner email inbox.'});
+sb.auth.onAuthStateChange(async(event)=>{if(event!=='PASSWORD_RECOVERY')return;const next=prompt('Enter a new owner password (minimum 8 characters):');if(!next||next.length<8){alert('Password reset cancelled or password is too short.');return}const {error}=await sb.auth.updateUser({password:next});if(error){alert('Could not update the password: '+error.message);return}alert('Owner password updated successfully. You can now sign in again.');await sb.auth.signOut();if(location.hash==='#owner')openOwner()});
 $('#ownerLogout').addEventListener('click',async()=>{await sb.auth.signOut();ownerDashboard.hidden=true;ownerLogin.hidden=false;$('#ownerLoginMsg').textContent='Signed out.'});
 async function isAdmin(){const {data,error}=await sb.rpc('nexa_is_admin');return !error&&data===true}
 async function loadOwner(){
@@ -305,3 +311,4 @@ if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.se
 </script>
 </body>
 </html>
+

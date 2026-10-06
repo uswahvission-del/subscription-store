@@ -1,6 +1,6 @@
 # Nexa Digital Tools
 
-Nexa Digital Tools website — production front-end baseline for digital subscriptions and direct WhatsApp ordering.
+Nexa Digital Tools website — production front-end for digital subscriptions, local payment and direct WhatsApp ordering.
 
 ## Current catalog
 - Ideogram Plus — 1 month — Rs 2,250 — 30 days complete warranty
@@ -15,28 +15,39 @@ Nexa Digital Tools website — production front-end baseline for digital subscri
 
 ## Payment
 - SadaPay — active
-- JazzCash / Easypaisa / Binance USDT — shown as unavailable until account/payment details are finalized
+- SadaPay number: 03116484535
+- Account title: ABDUL REHMAN
 - After payment, customer sends the payment screenshot on WhatsApp
+- JazzCash / Easypaisa / Binance USDT are currently unavailable
 
 ## Contact
 - WhatsApp ordering: +92 318 9836535
 - Email: nexadigitaltools321@gmail.com
 - WhatsApp community group and channel are linked from the website
 
-## Production integration pending
-- Secure admin authentication + dashboard
-- Live orders/reviews/settings database
-- Real AI assistant backend with multilingual responses
-- Final production domain, canonical URLs, and live sitemap
+## Completed production work
+- Supabase-backed order persistence with Row Level Security
+- Customer order tracking by Order ID
+- Owner dashboard with authorized Supabase login
+- Order status management
+- Review submission with owner approval workflow
+- Public approved reviews
+- SadaPay copy-to-clipboard flow
+- Live product search with keyboard navigation
+- Vercel production deployment
+- Production robots.txt and sitemap.xml
 
+## Remaining production work
+- Add the final custom domain when it is purchased/connected
+- Complete Google Search Console submission and indexing checks
+- Add a real AI assistant backend with multilingual responses if required
+- Finish owner account password/reset onboarding and verify the authorized Supabase admin account
 
 ## Current backend
 - Orders are stored in the isolated `nexa_orders` table with Row Level Security.
 - Customer submissions create a pending order and then open WhatsApp for payment confirmation.
 - Reviews are stored as pending and appear publicly only after owner approval.
-- Owner dashboard is private and requires an existing authorized Supabase admin account.
+- Owner dashboard is private and requires an authorized Supabase admin account.
 - Owner dashboard shortcut: `Ctrl + Shift + A` on desktop, or open the site with `#owner`.
-- Active payment: SadaPay only.
 - Sold counter remains hidden.
-- The Nexa tables are isolated inside the currently connected Supabase project; they do not reuse the existing Uswah content tables.
-- Supabase Free currently provides two active free projects; a separate Nexa project can be moved later if desired without changing the customer-facing flow.
+- The Nexa tables are isolated inside the connected Supabase project; they do not reuse the existing Uswah content tables.

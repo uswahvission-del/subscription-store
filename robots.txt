@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap will be published here after the production domain is connected.
+Sitemap: https://nexa-digital-tools.vercel.app/sitemap.xml

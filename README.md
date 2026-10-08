@@ -40,8 +40,8 @@ Nexa Digital Tools website — production front-end for digital subscriptions, l
 ## Remaining production work
 - Add the final custom domain when it is purchased/connected
 - Complete Google Search Console submission and indexing checks
-- Add a real AI assistant backend with multilingual responses if required
-- Finish owner account password/reset onboarding and verify the authorized Supabase admin account
+- Real AI assistant frontend/backend wiring is deployed; add the `GEMINI_API_KEY` Supabase Edge Function secret to activate live Gemini replies
+- Owner admin email is verified in Supabase and password recovery is wired; final sign-in test requires the owner to set/enter the password
 
 ## Current backend
 - Orders are stored in the isolated `nexa_orders` table with Row Level Security.

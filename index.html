@@ -159,7 +159,7 @@ async function reply(raw){
     const data=await response.json().catch(()=>({}));
     if(thinking)thinking.remove();
     if(!response.ok){
-      addMsg(data.error||'AI assistant is temporarily unavailable. Please use WhatsApp support.','bot');
+      addMsg('AI assistant is temporarily unavailable. Please use WhatsApp support for help.','bot');
       return;
     }
     const answer=String(data.reply||'').trim();
